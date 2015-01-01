@@ -1,0 +1,9 @@
+li a{
+color:red;
+}
+a:hover{
+color:blue;
+}
+a:visited{
+color:yellow;
+}

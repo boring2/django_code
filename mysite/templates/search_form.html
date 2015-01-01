@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search books</title>
+<head>
+<body>
+{%if errors%}
+	<ul>
+		{% for error in errors %}
+		<li style="color:red;">{{ error }}</li>
+		{% endfor %}
+	</ul>
+{%endif%}
+<p>input what you want to search</p>
+<form method='get' action="">
+<input type="text" name='p'/>
+<input type="submit" value='search'/>
+</form>
+<body>
+</html>
