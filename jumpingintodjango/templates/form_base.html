@@ -1,0 +1,6 @@
+{% csrf_token %}
+{% for f in form %}
+{{f.label_tag}}<br/>
+{{f.errors}}<br/>
+{{f}}<br/>
+{% endfor %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JumptoDjango | {% block title %}{% endblock %}</title>
+</head>
+<body>
+<h1>Questions & Anwser | {% block h1 %}{% endblock %}</h1>
+{% if user.is_authenticated %}
+	<p>Welcome,<b>{{user.username}}.</b><a href="{% url 'logout_page' %}">logout</a></p>
+{% else %}
+	<p>Welcome,Please<a href="{% url 'login_page' %}">log in</a></p>
+{% endif %}
+<p><a href="{% url 'homepage' %}">Home</a> | <a href="{% url 'index' %}">Q&A</a></p>
+{% block content %}{% endblock %}
+{% block footer %}
+<hr/>
+<p>supported by boring2.</p>
+{% endblock %}
+</body>
+</html>

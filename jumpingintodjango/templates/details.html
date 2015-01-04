@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% block title %}
+Details
+{% endblock %}
+{% block h1%}
+<span>Details</span>
+{% endblock %}
+{% block content %}
+<h4><a href="{% url 'edit' question.id %}">edit this</a></h4>
+<h2>{{ question.subject }}</h2>
+<strong>Published:</strong>{{ question.pub_date | date:'D,Y/m/d'}}
+{% if question.description %}
+	<p>{{ question.description }}</p>
+{% else %}
+	{% if question.was_published_today %}
+		<p>Today.</p>
+	{%else%}
+		<p>Not Today.</p>
+	{%endif%}
+<p>no description.</p>
+{%endif%}
+<h3>Anwser</h3>
+{% if question.anwser_set.all %}
+	<ul>
+	{% for a in question.anwser_set.all %}
+		<li>{{a.content|safe}}</li>
+	{% endfor %}
+	</ul>
+{%else%}
+<p> no anwser.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+Index
+{% endblock %}
+{% block h1 %}
+<span>Index</span>
+{% endblock%}
+{% block content %}
+<a href="{% url 'createForm' %}">create question</a>
+{% if question_list %}
+	{% for q in question_list %}
+		<h3><a href="{% url 'details' q.id %}">{{ q.subject }}</a></h3>
+	{% endfor %}
+{% else %}
+	<p>No publish questions.</p>
+{% endif %}
+{% endblock %}
